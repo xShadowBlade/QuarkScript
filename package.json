@@ -1,0 +1,29 @@
+{
+  "name": "quarkscript",
+  "version": "0.1.0",
+  "description": "An esolang based on quarks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xShadowBlade/QuarkScript.git"
+  },
+  "type": "module",
+  "author": "xShadowBlade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xShadowBlade/QuarkScript/issues"
+  },
+  "homepage": "https://github.com/xShadowBlade/QuarkScript#readme",
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
+    "prettier-eslint": "^16.1.1"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

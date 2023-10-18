@@ -1,0 +1,25 @@
+{
+  "name": "quarkscript",
+  "displayName": "quarkscript",
+  "description": "vscode extension for my esolang quarkscript",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "qs",
+      "aliases": ["QuarkScript", "qs"],
+      "extensions": [".qs",".quarkscript"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "qs",
+      "scopeName": "",
+      "path": "./syntaxes/qs.tmLanguage.json"
+    }]
+  }
+}
