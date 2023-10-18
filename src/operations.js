@@ -8,9 +8,11 @@ console.input = PromptSync();
 
 const variables = {
     list: [],
+    output: "",
 };
 
 const operations = [
+    // Creates or sets a new variable
     {
         "keys": ["charm", "c"],
         "value": ([varName, value]) => {
@@ -26,6 +28,7 @@ const operations = [
             })();
         },
     },
+    // Increments a variable
     {
         "keys": ["up", "u"],
         "value": ([varName, value]) => {
@@ -41,6 +44,7 @@ const operations = [
             })();
         },
     },
+    // Decrements a variable
     {
         "keys": ["down", "d"],
         "value": ([varName, value]) => {
@@ -56,19 +60,45 @@ const operations = [
             })();
         },
     },
+    // Inputs or outputs a variable
     {
         "keys": ["strange", "s"],
-        "value": ([type, varName]) => {
-            if (typeof variables.list[varName] != "undefined") {
-                switch (type) {
-                case "out":
-                    console.log(variables.list[varName]);
-                    break;
-                case "in":
-                    variables.list[varName] = parseInt(console.input(""));
+        "value": ([type, ...varName]) => {
+            let out = "";
+            varName.forEach((item) => {
+                if (typeof variables.list[item] != "undefined") {
+                    switch (type) {
+                    case "out":
+                        console.log(variables.list[item]);
+                        break;
+                    case "cout":
+                    case "charOut":
+                        out += String.fromCharCode(variables.list[item]);
+                        break;
+                    case "in":
+                        variables.list[item] = parseInt(console.input(""));
+                    }
+                } else if (`${parseInt(item)}` != "NaN") {
+                    switch (type) {
+                    case "out":
+                        console.log(item);
+                        break;
+                    case "cout":
+                    case "charOut":
+                        out += String.fromCharCode(item);
+                        break;
+                    case "in":
+                        variables.list[item] = item;
+                    }
+                } else {
+                    console.error(`Undefined variable ${item}`);
                 }
-            } else {
-                console.error(`Undefined variable ${varName}`);
+            });
+            switch (type) {
+            case "cout":
+            case "charOut":
+                console.log(out);
+                break;
             }
         },
     },
