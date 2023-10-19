@@ -102,6 +102,13 @@ const operations = [
             }
         },
     },
+    // While (varName != 0)
+    {
+        "keys": ["top", "t"],
+        "value": ([varName, code]) => {
+            return variables.list[varName] != 0 ? true : false;
+        },
+    },
 ];
 
 export default (() => {

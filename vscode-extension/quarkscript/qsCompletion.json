@@ -1,0 +1,25 @@
+{
+	"items": [
+	  {
+		"label": "charm",
+		"kind": 12,
+		"documentation": "Create or set a new variable"
+	  },
+	  {
+		"label": "up",
+		"kind": 12,
+		"documentation": "Increment a variable"
+	  },
+	  {
+		"label": "down",
+		"kind": 12,
+		"documentation": "Decrement a variable"
+	  },
+	  {
+		"label": "strange",
+		"kind": 12,
+		"documentation": "Input or output a variable"
+	  }
+	]
+}
+  

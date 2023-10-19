@@ -3,7 +3,7 @@
 import fs from "fs";
 import path from "path";
 import { argv } from "process";
-import { interpretQuarkScript } from "./quarkscriptInterpreter.js";
+import { interpretQuarkScript } from "./interpreter.js";
 
 // Get the command-line arguments
 const [, , fullCommand, filePath] = argv;
