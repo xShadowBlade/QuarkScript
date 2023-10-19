@@ -1,7 +1,5 @@
 // errorChecking.js
 
-import { workspace, DiagnosticSeverity, Range, languages } from "vscode";
-
 const missingSemicolonRegex = /\btop\b.*(?<!;)\s*$/;
 const missingBottomRegex = /\bbottom\b.*$/;
 
@@ -31,4 +29,3 @@ workspace.onDidChangeTextDocument((event) => {
 
     languages.createDiagnosticCollection("quarkscript").set(document.uri, diagnostics);
 });
-export default "";

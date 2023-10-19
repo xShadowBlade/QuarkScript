@@ -9,7 +9,13 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#constants"
+		},
+		{
 			"include": "#variables"
+		},
+		{
+			"include": "#collapsible"
 		}
 	],
 	"repository": {
@@ -26,8 +32,12 @@
 			]
 		},
 		"keywords": {
-			"match": "\\b(charm|c|up|u|down|d|strange|s|top|t|bottom|b)\\b",
-			"name": "keyword.quarkscript"
+			"patterns": [
+				{
+					"match": "\\b(charm|c|up|u|down|d|strange|s)\\b",
+					"name": "keyword.quarkscript"
+				}
+			]
 		},
 		"variables": {
 			"patterns": [
@@ -40,7 +50,7 @@
 				}
 			  },
 			  {
-				"match": "\\b(\\w+)\\b(?=\\s*)",
+				"match": "\\b(?:[a-zA-Z]\\w*|[^\\d\\w\\s])\b",
 				"name": "variable.quarkscript"
 			  }
 			]
@@ -51,17 +61,25 @@
 				"begin": "\\b(top|t)\\b",
 				"beginCaptures": {
 				  "0": {
-					"name": "keyword.control.quarkscript"
+					"name": "keyword.control.import.quarkscript"
 				  }
 				},
 				"end": "\\b(bottom|b)\\b",
 				"endCaptures": {
 				  "0": {
-					"name": "keyword.control.quarkscript"
+					"name": "keyword.control.import.quarkscript"
 				  }
 				},
 				"name": "meta.collapsible.quarkscript"
 			  }
+			]
+		  },
+		  "constant": {
+			"patterns": [
+				{
+					"match": "\\b\\d+\\b",
+					"name": "constant.numeric.quarkscript"
+				}
 			]
 		  }
 	}

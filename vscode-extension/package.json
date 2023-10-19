@@ -2,11 +2,10 @@
   "name": "quarkscript",
   "displayName": "QuarkScript",
   "description": "vscode extension for my esolang quarkscript",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.83.0"
   },
-  "type": "module",
   "categories": [
     "Programming Languages"
   ],
@@ -22,7 +21,11 @@
           ".qs",
           ".quarkscript"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+					"dark": "./images/icon.png",
+					"light": "./images/icon.png"
+				}
       }
     ],
     "grammars": [
@@ -44,9 +47,19 @@
         "path": "./snippets/qs.json"
       }
     ],
-    "commands": []
+    "commands": [
+      {
+        "command": "extension.commentLine",
+        "title": "Comment Line",
+        "keybindings": [
+          {
+            "command": "editor.action.commentLine",
+            "key": "ctrl+/"
+          }
+        ]
+      }
+    ]
   },
-  "main": "src/index.js",
   "activationEvents": [
     "onLanguage:quarkscript"
   ],
