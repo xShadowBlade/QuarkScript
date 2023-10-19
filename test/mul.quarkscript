@@ -1,0 +1,14 @@
+c x;
+s in x;
+
+c y;
+s in y;
+
+c i x;
+c out;
+
+top i; d i;
+    up out y;
+bottom;
+
+s out out;

@@ -6,7 +6,24 @@ import { argv } from "process";
 import { interpretQuarkScript } from "./interpreter.js";
 
 // Get the command-line arguments
-const [, , fullCommand, filePath] = argv;
+const [args, flags] = (() => {
+    const args = [];
+    const flags = {};
+    argv.forEach((item) => {
+        if (item.match(/(-|--)+/)) { // If it is a flag
+            item = item.replace(/(-|--)+/g, "");
+            const arr = item.split("=");
+            flags[arr[0]] = arr[1];
+        } else {
+            args.push(item);
+        }
+    });
+    return [args, flags]
+})();
+
+console.log(args, flags)
+
+const [, , fullCommand, filePath] = args;
 
 // Parse the full command into its parts
 const [command, subCommand] = fullCommand.split(" ");
@@ -24,7 +41,7 @@ if (command) {
             // Interpret or compile the QuarkScript code based on the subcommand
             // eslint-disable-next-line no-lonely-if
             if (command === "interpret" || command === "i") {
-                interpretQuarkScript(data);
+                interpretQuarkScript(data, flags);
             } else {
                 console.error("Invalid subcommand. Use \"interpret\" or \"i\".");
             }

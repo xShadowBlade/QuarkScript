@@ -1,26 +1,34 @@
 /* eslint-disable no-unreachable */
 import operations from "./operations.js";
 
-export function interpretQuarkScript (code) {
-    console.log(code);
+export function interpretQuarkScript (code, {d, debug}) {
+    d = typeof debug != undefined ? debug : (typeof d != undefined ? d : false);
+    console.log(d);
+
+    if (d) console.log(code);
 
     // Splits every semicolon (required), removes comments and \r\n
     let lines = code.replace(/\/\/[^\r\n]*|\/\*[\s\S]*?\*\/|\t/g, "").replace(/\r|\n/g, "").split(";");
 
     // Loop through all
-    for (let i = 0; i < lines[i].length; i++) {
+    for (let i = 0; i < lines.length; i++) {
         // Remove trailing whitespace
         lines[i] = lines[i].replace(/^\s+/g, "");
     }
 
     lines = lines.filter((item) => item);
 
-    console.log(lines);
+    if (d) console.log("\nLines init array: \n", lines);
 
     // Seperate into tokens
     lines = lines.map((line) => line.split(" "));
 
-    console.log(lines);
+    for (let i = 0; i < lines.length; i++) {
+        // Remove trailing whitespace
+        lines[i] = lines[i].filter(item => Boolean(item));
+    }
+
+    if (d) console.log("\nTokens: \n", lines);
 
     const loops = [];
     // Loop logic
@@ -37,7 +45,7 @@ export function interpretQuarkScript (code) {
         }
     }
 
-    console.log(lines);
+    if (d) console.log("\nFinal loops + blocks: \n", lines);
 
     // Interpret line by line
 
@@ -62,5 +70,4 @@ export function interpretQuarkScript (code) {
         });
     }
     interpret(lines);
-
 }
