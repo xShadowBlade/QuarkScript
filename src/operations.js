@@ -3,6 +3,7 @@
  */
 
 import PromptSync from "prompt-sync";
+import process from "process";
 
 console.input = PromptSync();
 

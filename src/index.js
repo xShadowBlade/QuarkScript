@@ -21,7 +21,7 @@ const [args, flags] = (() => {
     return [args, flags]
 })();
 
-console.log(args, flags);
+// console.log(args, flags);
 
 const [, , fullCommand, filePath] = args;
 

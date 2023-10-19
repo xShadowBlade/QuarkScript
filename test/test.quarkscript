@@ -1,5 +1,5 @@
-charm foo 1; // Creates a new variable named foo
-up foo 3; // Increments
+charm foo 1; // Creates a new variable named foo and assigns it value of 1
+up foo 3; // Increments foo by 3
 strange out foo; // Outputs to console
 
 charm bar;
