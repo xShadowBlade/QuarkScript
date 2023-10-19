@@ -21,7 +21,7 @@ const [args, flags] = (() => {
     return [args, flags]
 })();
 
-console.log(args, flags)
+console.log(args, flags);
 
 const [, , fullCommand, filePath] = args;
 
@@ -41,6 +41,7 @@ if (command) {
             // Interpret or compile the QuarkScript code based on the subcommand
             // eslint-disable-next-line no-lonely-if
             if (command === "interpret" || command === "i") {
+                console.log(`Program ${resolvedPath} started.`);
                 interpretQuarkScript(data, flags);
             } else {
                 console.error("Invalid subcommand. Use \"interpret\" or \"i\".");

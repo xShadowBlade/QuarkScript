@@ -3,7 +3,7 @@ import operations from "./operations.js";
 
 export function interpretQuarkScript (code, {d, debug}) {
     d = typeof debug != undefined ? debug : (typeof d != undefined ? d : false);
-    console.log(d);
+    // console.log(d);
 
     if (d) console.log(code);
 
