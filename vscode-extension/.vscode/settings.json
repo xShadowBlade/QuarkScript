@@ -1,0 +1,14 @@
+{
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+		  {
+			"scope": [
+			  "keyword.control.quarkscript"
+			],
+			"settings": {
+			  "foreground": "#800080"  // Use your preferred color code
+			}
+		  }
+		]
+	  }	  
+}

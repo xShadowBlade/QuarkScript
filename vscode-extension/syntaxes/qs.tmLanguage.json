@@ -1,0 +1,68 @@
+{
+	"scopeName": "source.quarkscript",
+	"fileTypes": ["qs"],
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": "\\/\\*.*?\\*\\/",
+					"name": "comment.block.quarkscript"
+				},
+				{
+					"match": "\\/\\/.*?$",
+					"name": "comment.line.double-slash.quarkscript"
+				}
+			]
+		},
+		"keywords": {
+			"match": "\\b(charm|c|up|u|down|d|strange|s|top|t|bottom|b)\\b",
+			"name": "keyword.quarkscript"
+		},
+		"variables": {
+			"patterns": [
+			  {
+				"match": "\\b(charm|c)\\s+\\b(\\w+)\\b\\s+\\d+\\s*",
+				"captures": {
+				  "1": {
+					"name": "variable.declaration.quarkscript"
+				  }
+				}
+			  },
+			  {
+				"match": "\\b(\\w+)\\b(?=\\s*)",
+				"name": "variable.quarkscript"
+			  }
+			]
+		  },
+		  "collapsible": {
+			"patterns": [
+			  {
+				"begin": "\\b(top|t)\\b",
+				"beginCaptures": {
+				  "0": {
+					"name": "keyword.control.quarkscript"
+				  }
+				},
+				"end": "\\b(bottom|b)\\b",
+				"endCaptures": {
+				  "0": {
+					"name": "keyword.control.quarkscript"
+				  }
+				},
+				"name": "meta.collapsible.quarkscript"
+			  }
+			]
+		  }
+	}
+}

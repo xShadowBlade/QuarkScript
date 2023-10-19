@@ -6,6 +6,7 @@
   "engines": {
     "vscode": "^1.83.0"
   },
+  "type": "module",
   "categories": [
     "Programming Languages"
   ],
@@ -13,8 +14,14 @@
     "languages": [
       {
         "id": "quarkscript",
-        "aliases": ["QuarkScript", "qs"],
-        "extensions": [".qs",".quarkscript"],
+        "aliases": [
+          "QuarkScript",
+          "qs"
+        ],
+        "extensions": [
+          ".qs",
+          ".quarkscript"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -31,7 +38,25 @@
         "path": "./completions/quarkscriptCompletion.json"
       }
     ],
-    "snippets": [],
+    "snippets": [
+      {
+        "language": "quarkscript",
+        "path": "./snippets/qs.json"
+      }
+    ],
     "commands": []
+  },
+  "main": "src/index.js",
+  "activationEvents": [
+    "onLanguage:quarkscript"
+  ],
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "author": "xShadowBlade",
+  "license": "MIT",
+  "dependencies": {
+    "@types/vscode": "^1.83.1"
   }
 }

@@ -3,7 +3,6 @@
  */
 
 import PromptSync from "prompt-sync";
-import process from "process";
 
 console.input = PromptSync();
 
@@ -106,7 +105,7 @@ const operations = [
     // While (varName != 0)
     {
         "keys": ["top", "t"],
-        "value": ([varName, code]) => {
+        "value": ([varName]) => {
             return variables.list[varName] != 0 ? true : false;
         },
     },

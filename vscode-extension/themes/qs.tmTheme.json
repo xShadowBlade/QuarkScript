@@ -1,0 +1,25 @@
+{
+	"name": "QuarkScript Theme",
+	"colors": {
+	  "editor.tokenColorCustomizations": {
+		"textMateRules": [
+		  {
+			"scope": [
+			  "keyword.quarkscript.top",
+			  "keyword.quarkscript.bottom"
+			],
+			"settings": {
+			  "foreground": "#800080"
+			}
+		  },
+		  {
+			"scope": "keyword.quarkscript",
+			"settings": {
+			  "foreground": "#0000FF"
+			}
+		  }
+		]
+	  }
+	}
+  }
+  
