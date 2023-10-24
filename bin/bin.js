@@ -25,7 +25,7 @@ const [args, flags] = (() => {
     return [argsA, flagsA];
 })();
 
-if (flags["d"] || flags["debug"]) console.log("Args:", args, "\r\n", "Flags:", flags);
+if (flags["d"] || flags["debug"]) console.log("Args:", args, "\n", "Flags:", flags);
 
 /**
  * Represents the main entry point for the QuarkScript CLI tool.
@@ -50,6 +50,9 @@ case "i" || "interpret": {
             process.exit(2);
         }
         // Interpret or compile the QuarkScript code based on the subcommand
+
+        if ((flags["clearConsole"] === "false" ? false : true)) console.clear();
+
         console.log(`Program ${resolvedPath} started.`);
         interpretQuarkScript(data, flags);
         console.log(`Program ${resolvedPath} exited.`);
@@ -58,7 +61,7 @@ case "i" || "interpret": {
 case "":
 case "help":
 case "h":
-    displayHelp();
+    displayHelp({ command: argsSubcommand[0] });
     break;
 default:
     console.error(`Quarkscript: Invalid command "${subCommand.toLowerCase()}"`);

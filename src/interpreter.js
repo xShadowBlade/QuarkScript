@@ -2,9 +2,11 @@
 import operations from "./operations.js";
 import process from "process";
 
-export function interpretQuarkScript (code, {d, debug, maxStackSize = 1e6}) {
+export function interpretQuarkScript (code, {d, debug, maxStackSize}) {
     d = typeof debug != "undefined" ? debug : (typeof d != "undefined" ? d : false);
     // console.log(d);
+
+    maxStackSize = parseInt(maxStackSize) ? parseInt(maxStackSize) : 1e6
 
     if (d) console.log(code);
 

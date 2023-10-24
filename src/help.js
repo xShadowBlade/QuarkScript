@@ -10,7 +10,7 @@ export function displayHelp (helpArgs) {
 	   commands: [
 		   {
 			   keys: ["h", "help"],
-			   value: "quarkscript h|help\tDisplays Help",
+			   value: "quarkscript h|help ?<command>\tDisplays Help (or for a specific command)",
 		   },
 		   {
 			   keys: ["i", "interpret"],
@@ -20,11 +20,11 @@ export function displayHelp (helpArgs) {
 	   flags: [
 		   {
 			   keys: ["h", "help"],
-			   value: "-h || -help\tDisplays help",
+			   value: "-h || -help\t<boolean>\tDisplays help",
 		   },
 		   {
 			   keys: ["d", "debug"],
-			   value: "-d || --debug\tDisplays debug info",
+			   value: "-d || --debug\t<boolean>\tDisplays debug info",
 		   },
             //    {
             //         keys: ["i", "instance"],
@@ -32,8 +32,12 @@ export function displayHelp (helpArgs) {
             //     },
 		   {
 			   keys: ["maxStackSize"],
-			   value: "--maxStackSize\tSets the maximum recursion / call stack size. Default: 1 000 000",
+			   value: "--maxStackSize\t<number>\tSets the maximum recursion / call stack size. Default: 1 000 000",
 		   },
+		   {
+			keys: ["clearConsole"],
+			value: "--clearConsole\t<boolean>\tWhether or not to clear the console on run. Default: true",
+			},
 	   ],
     };
 
