@@ -2,7 +2,7 @@
 import operations from "./operations.js";
 import process from "process";
 
-export function interpretQuarkScript (code, {d, debug, maxCallSize = 1e6}) {
+export function interpretQuarkScript (code, {d, debug, maxStackSize = 1e6}) {
     d = typeof debug != "undefined" ? debug : (typeof d != "undefined" ? d : false);
     // console.log(d);
 
@@ -46,7 +46,7 @@ export function interpretQuarkScript (code, {d, debug, maxCallSize = 1e6}) {
                 lines[loops[loops.length - 1]].push(out);
             }
         }
-        console.log(loops);
+        if (d) console.log(loops);
         if (loops.length == 1) { loops.splice(0, 1); }
     }
     loopCompile();
@@ -57,8 +57,8 @@ export function interpretQuarkScript (code, {d, debug, maxCallSize = 1e6}) {
     // Interpret line by line
     let callSize = 0;
     function interpret (array) {
-        if (callSize > maxCallSize) {
-            console.error(`Max call size of ${maxCallSize} exceeded`);
+        if (callSize > maxStackSize) {
+            console.error(`Max call stack size of ${maxStackSize} exceeded`);
             process.exit(1);
         }
         array.forEach((line) => {
